@@ -90,9 +90,8 @@ resource "ibm_is_instance" "instance2jorge" {
 
 resource "ibm_is_instance" "instance3jorge" {
   name    = "instance3jorge"
-  image   = var.image}
+  image   = var.image
   profile = var.profile
-
   primary_network_interface = {
     subnet = ibm_is_subnet.subnet3.id
   }
