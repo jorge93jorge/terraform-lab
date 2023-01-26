@@ -90,16 +90,16 @@ resource "ibm_is_instance" "instance2jorge" {
 
 resource "ibm_is_instance" "instance3jorge" {
   name    = "instance3jorge"
-  image   = "${var.image}"
-  profile = "${var.profile}"
+  image   = var.image}
+  profile = var.profile
 
   primary_network_interface = {
-    subnet = "${ibm_is_subnet.subnet3.id}"
+    subnet = ibm_is_subnet.subnet3.id
   }
-  vpc  = "${ibm_is_vpc.vpc1.id}"
-  zone = "${var.zone3}"
-  keys = ["${ibm_is_ssh_key.ssh1.id}"]
-  user_data = "${data.template_cloudinit_config.cloud-init-apptier.rendered}"
+  vpc  = ibm_is_vpc.vpc1.id
+  zone = var.zone3
+  keys = [data.ibm_is_ssh_key.ssh1.id]
+  user_data = data.template_cloudinit_config.cloud-init-apptier.rendered
 }
 
 resource "ibm_is_floating_ip" "floatingip3" {
