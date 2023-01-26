@@ -93,7 +93,7 @@ resource "ibm_is_instance" "instance3jorge" {
   image   = var.image
   profile = var.profile
   primary_network_interface = {
-    subnet = ibm_is_subnet.subnet3.id
+    subnet = ibm_is_subnet.subnet2.id
   }
   vpc  = ibm_is_vpc.vpc1.id
   zone = var.zone3
